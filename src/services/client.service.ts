@@ -18,7 +18,14 @@ export class ClientService {
 
   addClient() {}
 
-  updateClient() {}
+  updateClient(client: Cliente) {
+    const index = MOCK_CLIENTS.findIndex((cliente) => cliente.id === client.id);
+    if (index !== -1) {
+      MOCK_CLIENTS[index] = {
+        ...client
+      };
+    }
+  }
 
   deleteClient() {}
 }
