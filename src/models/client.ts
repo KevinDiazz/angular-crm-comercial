@@ -9,6 +9,6 @@ export interface Cliente {
   status: Status;
 }
 
-type TipoEmpresa = 'marketing' | 'construcion' | 'restauracion' | 'limpieza' | 'agricultura';
+export type TipoEmpresa = 'marketing' | 'construcion' | 'restauracion' | 'limpieza' | 'agricultura';
 
-type Status = 'lead' | 'contactado' | 'propuesta' | 'cliente' | 'perdido';
+export type Status = 'lead' | 'contactado' | 'propuesta' | 'cliente' | 'perdido';

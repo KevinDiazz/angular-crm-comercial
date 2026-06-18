@@ -22,10 +22,18 @@ export class ClientService {
     const index = MOCK_CLIENTS.findIndex((cliente) => cliente.id === client.id);
     if (index !== -1) {
       MOCK_CLIENTS[index] = {
-        ...client
+        ...client,
       };
     }
   }
 
-  deleteClient() {}
+  deleteClient(client: Cliente):boolean {
+    const index = MOCK_CLIENTS.findIndex((cliente) => cliente.id === client.id);
+    if (index !== -1) {
+      MOCK_CLIENTS.splice(index, 1);
+      return true
+    }else{
+      return false
+    }
+  }
 }

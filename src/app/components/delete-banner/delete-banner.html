@@ -1,0 +1,30 @@
+
+@if(client){<div
+  class="flex flex-col gap-4 rounded-xl border border-red-200 bg-red-50 p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between"
+>
+  <div>
+    <h3 class="text-lg font-semibold text-red-700">
+      ¿Estás seguro de eliminar al cliente: {{ client?.nombre }}?
+    </h3>
+
+    <p class="mt-1 text-sm text-red-600">
+      Esta acción eliminará permanentemente el cliente y no podrá deshacerse.
+    </p>
+  </div>
+
+  <div class="flex gap-3">
+    <button (click)="confirmDeleteEmit()"
+      class="rounded-lg border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-100"
+    >
+      Cancelar
+    </button>
+
+    <button
+      (click)="deleteClientEmit(client)"
+      class="rounded-lg bg-red-600 px-4 py-2 font-medium text-white transition hover:bg-red-700"
+    >
+      Eliminar
+    </button>
+  </div>
+</div>
+}

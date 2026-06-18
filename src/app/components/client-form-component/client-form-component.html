@@ -7,12 +7,17 @@
     </div>
 
     <!-- Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="update()" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-            <!-- ID -->
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="update()"
+      class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5"
+    >
+      <!-- ID -->
       <div>
         <label class="block text-sm font-medium text-slate-700 mb-1"> ID </label>
         <input
-          formControlName="id" readonly
+          formControlName="id"
+          readonly
           class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
@@ -27,7 +32,13 @@
 
       <!-- Email -->
       <div>
-        <label class="block text-sm font-medium text-slate-700 mb-1"> Email </label>
+        @if (loginForm.get('email')?.invalid) {
+          <label class="block text-sm font-medium text-slate-700 mb-1">
+            <span class="text-red-600 font-bold">❌ Email no valido</span>
+          </label>
+        } @else {
+          <label class="block text-sm font-medium text-slate-700 mb-1 font-bold"> Email ✅ </label>
+        }
         <input
           formControlName="email"
           type="email"
@@ -37,7 +48,13 @@
 
       <!-- DNI -->
       <div>
-        <label class="block text-sm font-medium text-slate-700 mb-1"> DNI </label>
+        @if (loginForm.get('dni')?.invalid) {
+          <label class="block text-sm font-medium text-slate-700 mb-1">
+            <span class="text-red-600 font-bold">❌ DNI no valido</span>
+          </label>
+        } @else {
+          <label class="block text-sm text-slate-700 mb-1 font-bold"> DNI ✅ </label>
+        }
         <input
           formControlName="dni"
           class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -55,7 +72,13 @@
 
       <!-- Teléfono -->
       <div>
-        <label class="block text-sm font-medium text-slate-700 mb-1"> Teléfono </label>
+        @if (loginForm.get('telefono')?.invalid) {
+          <label class="block text-sm font-medium text-slate-700 mb-1">
+            <span class="text-red-600 font-bold">❌ Telefono no valido</span>
+          </label>
+        } @else {
+          <label class="block text-sm text-slate-700 mb-1 font-bold"> Telefono ✅ </label>
+        }
         <input
           formControlName="telefono"
           class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -69,7 +92,6 @@
           formControlName="tipoEmpresa"
           class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <option value="">Seleccionar</option>
           <option value="marketing">marketing</option>
           <option value="construcion">construcion</option>
           <option value="restauracion">restauracion</option>
@@ -97,17 +119,27 @@
       <div class="md:col-span-2 flex justify-end gap-3 pt-4">
         <button
           type="button"
+          (click)="showFormEmit()"
           class="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 transition"
         >
           Cancelar
         </button>
-
+@if(loginForm.invalid){
         <button
+          type="submit"
+           [disabled]="loginForm.invalid"
+          class="px-5 py-2 rounded-lg bg-gray-400 text-white"
+        >
+          Guardar Cliente
+        </button>
+      }@else{
+      <button
           type="submit"
           class="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
         >
           Guardar Cliente
         </button>
+      }
       </div>
     </form>
   </div>

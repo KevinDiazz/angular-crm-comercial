@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { Cliente } from '../../../models/client';
 import { ClientService } from '../../../services/client.service';
 import { ClientListComponent } from '../../components/client-list/client-list';
+import { Navbar } from "../../components/navbar/navbar";
+import { Footer } from "../../components/footer/footer";
 @Component({
   selector: 'app-dashboard',
   imports: [ClientListComponent],
