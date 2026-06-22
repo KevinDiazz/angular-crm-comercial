@@ -14,24 +14,23 @@ export class ClientFormComponent {
   updateClient = new EventEmitter<Cliente>();
   @Output()
   showForm = new EventEmitter();
-  
+
   update() {
     const value = this.loginForm.getRawValue();
     if (value) {
       const cliente: Cliente = {
         ...value,
-        id: Number(value.id),
+        id: Number(value.id)? Number(value.id) : 0,
         tipoEmpresa: value.tipoEmpresa as TipoEmpresa,
         status: value.status as Status,
       };
       this.updateClient.emit(cliente);
     }
   }
-showDeleteBanner(){
 
-}
-  showFormEmit(){
- this.showForm.emit();
+  showDeleteBanner() {}
+  showFormEmit() {
+    this.showForm.emit();
   }
 
   loginForm = new FormGroup({

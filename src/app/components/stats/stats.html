@@ -1,1 +1,49 @@
-<p>stats works!</p>
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 mb-8">
+  <!-- Total Clientes -->
+  <div class="rounded-xl bg-white p-5 shadow border border-gray-200">
+    <p class="text-sm text-gray-500">Total Clientes</p>
+    <h2 class="mt-2 text-3xl font-bold text-gray-900">
+      {{ clients.length }}
+    </h2>
+  </div>
+
+  <!-- Leads -->
+  <div class="rounded-xl bg-slate-50 p-5 shadow border border-slate-200">
+    <p class="text-sm text-slate-600">Leads</p>
+    <h2 class="mt-2 text-3xl font-bold text-slate-800">
+      {{ leadCount }}
+    </h2>
+  </div>
+
+  <!-- Contactados -->
+  <div class="rounded-xl bg-blue-50 p-5 shadow border border-blue-200">
+    <p class="text-sm text-blue-600">Contactados</p>
+    <h2 class="mt-2 text-3xl font-bold text-blue-800">
+      {{ contactadoCount }}
+    </h2>
+  </div>
+
+  <!-- Propuestas -->
+  <div class="rounded-xl bg-yellow-50 p-5 shadow border border-yellow-200">
+    <p class="text-sm text-yellow-600">Propuestas</p>
+    <h2 class="mt-2 text-3xl font-bold text-yellow-800">
+      {{ propuestaCount }}
+    </h2>
+  </div>
+
+  <!-- Clientes -->
+  <div class="rounded-xl bg-green-50 p-5 shadow border border-green-200">
+    <p class="text-sm text-green-600">Clientes</p>
+    <h2 class="mt-2 text-3xl font-bold text-green-800">
+      {{ clienteCount }}
+    </h2>
+  </div>
+
+  <!-- Perdidos -->
+  <div class="rounded-xl bg-red-50 p-5 shadow border border-red-200">
+    <p class="text-sm text-red-600">Perdidos</p>
+    <h2 class="mt-2 text-3xl font-bold text-red-800">
+      {{ perdidoCount }}
+    </h2>
+  </div>
+</div>

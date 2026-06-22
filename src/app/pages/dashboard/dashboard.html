@@ -1,1 +1,15 @@
-<app-client-list [clients]="clients"></app-client-list>
+@if(formActive){
+<app-client-form-component  (showForm)="showForm()" (updateClient)="insertClient($event)"></app-client-form-component>
+}
+<app-stats [clients]="clients"></app-stats>
+<div class="flex flex-col items-center gap-10">
+  <app-client-list [clients]="clients"></app-client-list>
+  <div class="flex gap-5 p-2 items-center justify-center bg-gray-400 rounded-full mb-10">
+    <p class="p-2 text-end font-bold text-white">Añadir Cliente</p>
+    <button
+      class="bg-green-700 rounded-full w-10 h-10 p-2 text-white flex justify-center items-center hover:bg-green-500 cursor-pointer hover:text-blue-700" (click)="showForm()"
+    >
+      <span class="font-bold text-2xl mb-1">+</span>
+    </button>
+  </div>
+</div>

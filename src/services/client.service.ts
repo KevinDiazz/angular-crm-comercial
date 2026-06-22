@@ -16,7 +16,10 @@ export class ClientService {
     return of(client);
   }
 
-  addClient() {}
+  addClient(client: Cliente) {
+    MOCK_CLIENTS.push({ ...client, id: MOCK_CLIENTS[MOCK_CLIENTS.length - 1].id + 1 });
+    console.log(MOCK_CLIENTS);
+  }
 
   updateClient(client: Cliente) {
     const index = MOCK_CLIENTS.findIndex((cliente) => cliente.id === client.id);
@@ -27,13 +30,13 @@ export class ClientService {
     }
   }
 
-  deleteClient(client: Cliente):boolean {
+  deleteClient(client: Cliente): boolean {
     const index = MOCK_CLIENTS.findIndex((cliente) => cliente.id === client.id);
     if (index !== -1) {
       MOCK_CLIENTS.splice(index, 1);
-      return true
-    }else{
-      return false
+      return true;
+    } else {
+      return false;
     }
   }
 }
